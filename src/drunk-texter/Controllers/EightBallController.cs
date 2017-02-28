@@ -13,14 +13,15 @@ namespace drunk_texter.Controllers
     {
         public Dictionary<string, string> Responses = new Dictionary<string, string>
         {
-            ["Yes."] = "positive",
-            ["No."] = "negative",
             ["Maybe."] = "neutral",
             ["I don't know."] = "neutral",
-            ["Probably."] = "positive",
             ["Can you repeat the question?"] = "neutral",
+            ["Why are you asking me?"] = "neutral",
+            ["Yes."] = "positive",
+            ["Probably."] = "positive",
             ["Definitely."] = "positive",
             ["Absolutely."] = "positive",
+            ["No."] = "negative",
             ["Absolutely not."] = "negative",
             ["Of course not."] = "negative",
             ["You don't want to know."] = "negative"
