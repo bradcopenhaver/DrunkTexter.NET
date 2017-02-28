@@ -1,0 +1,18 @@
+﻿body {
+}
+
+.responseDisplay {
+    display: none;
+}
+.negative {
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+.positive {
+    border: 2px solid green;
+    border-radius: 5px;
+}
+.neutral {
+
+}

@@ -81,7 +81,7 @@
         public int wind_degrees { get; set; }
         public double wind_mph { get; set; }
         public string wind_gust_mph { get; set; }
-        public int wind_kph { get; set; }
+        public float wind_kph { get; set; }
         public string wind_gust_kph { get; set; }
         public string pressure_mb { get; set; }
         public string pressure_in { get; set; }

@@ -1,4 +1,6 @@
 ﻿@{
+    ViewData["Title"] = "Awesome Drunk Texting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Awesome Drunk Texting</h2>
@@ -6,4 +8,46 @@
 <a asp-controller="Home" asp-action="GetMessages">View All Messages</a>
 <br />
 <a asp-controller="Home" asp-action="SendMessage">Send A Message</a>
-<button asp-action="GetForecast" asp-controller="Home">astronomy+weather</button>
+<br />
+<a asp-action="GetForecast" asp-controller="Home">astronomy+weather</a>
+<br />
+<form class="questionForm">
+    <label>Enter a yes or no question:</label>
+    <input id="question" name="question"/>
+    <button type="submit">Ask</button>
+</form>
+<h5 class="responseDisplay">You asked on <span id="date-stamp"></span>:</h5>
+<p class="responseDisplay" id="returnQ"></p>
+<h5 class="responseDisplay">The answer is:</h5>
+<p class="responseDisplay" id="returnA"></p>
+
+<script>
+    $(function () {
+        $(".questionForm").submit(function (event) {
+            event.preventDefault();
+            console.log($(this));
+            console.log($(this).serialize());
+            $("#returnA").removeClass();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("GetAnswer")',
+                data: $(this).serialize(),
+                datatype: 'json',
+                success: function (result) {
+                    console.log(result);
+                    $(".responseDisplay").show();
+                    $("#date-stamp").text(result.responseDate);
+                    $("#returnQ").text(result["question"]);
+                    $("#returnA").text(result["answer"]);
+                    $("#returnA").addClass(result.answerType);
+                },
+                error: function (result) {
+                    console.log(result);
+
+                }
+            })
+
+        })
+
+    })
+</script>

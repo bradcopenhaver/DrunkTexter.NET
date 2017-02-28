@@ -48,5 +48,10 @@ namespace drunk_texter.Controllers
             newMessage.Send();
             return View("ForecastResults", weatherObs);
         }
+
+        public IActionResult GetAnswer(string question)
+        {
+            return Json(Question.GetQuestion(question));
+        }
     }
 }
